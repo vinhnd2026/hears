@@ -1,18 +1,18 @@
 {
   "name": "HearS",
   "short_name": "HearS",
-  "start_url": "/",
+  "start_url": "./",
   "display": "browser",
   "background_color": "#FFFFFF",
   "theme_color": "#10263D",
   "icons": [
     {
-      "src": "/assets/img/brand/apple-touch-icon-180.png",
+      "src": "assets/img/brand/apple-touch-icon-180.png",
       "sizes": "180x180",
       "type": "image/png"
     },
     {
-      "src": "/assets/img/brand/favicon.svg",
+      "src": "assets/img/brand/favicon.svg",
       "sizes": "any",
       "type": "image/svg+xml"
     }
