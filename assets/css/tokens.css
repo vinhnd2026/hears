@@ -1,0 +1,132 @@
+/* HearS design tokens  |  assets/css/tokens.css
+   Source of truth for colour, type and spacing. Colour comes from LOGO_HEARS.png
+   (one flat red, sampled as #D70000) plus the brand palette in the brief.
+   Contrast ratios are computed (WCAG 2.x), not estimated. */
+
+:root {
+  /* ---- Brand colour ---- */
+  --hears-red:      #D70000;  /* logo, primary action, thin accents. 5.4:1 on white, 4.9:1 on grey-50 */
+  --hears-red-700:  #B30000;  /* hover / pressed. white text on it 7.2:1 */
+  --hears-red-50:   #FFE9E9;  /* tint panels. navy text on it 13.2:1 */
+  --hears-red-300:  #FF8080;  /* small red accents on navy only. 6.3:1 on navy */
+  --navy-800:       #10263D;  /* headings, dark bands, footer. 15.4:1 on white */
+  --navy-200:       #B8C7D6;  /* secondary text on navy. 8.9:1 */
+  --green-600:      #1D674F;  /* Solar Leader project tags, success. 6.8:1 on white */
+  --green-700:      #17543F;
+  --green-100:      #E3F0EA;
+  --white:          #FFFFFF;
+  --grey-50:        #F3F5F7;  /* alternate bands, table zebra */
+  --slate-600:      #5B6876;  /* secondary text. 5.7:1 on white */
+  --line:           #DDE2E7;  /* decorative dividers only (1.3:1) */
+  --control:        #8896A5;  /* form borders (3.0:1) */
+  --error:          #B42318;  /* always with an icon and a message */
+  --warning:        #8A4B08;
+
+  /* ---- Semantic roles (use these in components) ---- */
+  --color-bg:               var(--white);
+  --color-bg-alt:           var(--grey-50);
+  --color-bg-dark:          var(--navy-800);
+  --color-text:             var(--navy-800);
+  --color-text-muted:       var(--slate-600);
+  --color-text-on-dark:     var(--white);
+  --color-text-muted-on-dark: var(--navy-200);
+  --color-action:           var(--hears-red);
+  --color-action-hover:     var(--hears-red-700);
+  --color-action-text:      var(--white);
+  --color-link:             var(--navy-800);
+  --color-link-underline:   var(--hears-red);
+  --color-accent-on-dark:   var(--hears-red-300);
+  --color-project-tag:      var(--green-600);
+  --color-border:           var(--line);
+  --color-border-control:   var(--control);
+  --color-focus:            var(--navy-800);
+  --color-focus-on-dark:    var(--white);
+
+  /* ---- Typography ---- */
+  --font-display: "Be Vietnam Pro", "Helvetica Neue", Arial, sans-serif; /* one family for everything: full Vietnamese glyph set (self-hosted, tools/fetch-fonts.mjs) */
+  --font-body:    "Be Vietnam Pro", "Helvetica Neue", Arial, sans-serif;
+  --fw-display: 800;      /* H1, H2; 800 is the heaviest hosted weight */
+  --fw-heading: 700;      /* H3, H4 */
+  --stretch-display: normal; /* Be Vietnam Pro has no width axis */
+  --fs-display: clamp(2.25rem, 1.5rem + 3vw, 3.5rem);     /* 36 -> 56 px */
+  --fs-h1:      clamp(2rem, 1.4rem + 2.2vw, 2.75rem);     /* 32 -> 44 */
+  --fs-h2:      clamp(1.625rem, 1.3rem + 1.2vw, 2rem);    /* 26 -> 32 */
+  --fs-h3:      clamp(1.3125rem, 1.15rem + 0.6vw, 1.5rem);/* 21 -> 24 */
+  --fs-h4:      clamp(1.125rem, 1.05rem + 0.3vw, 1.25rem);/* 18 -> 20 */
+  --fs-body-lg: 1.125rem;
+  --fs-body:    1rem;
+  --fs-small:   0.875rem;
+  /* Vietnamese stacked diacritics need room at heavy weights: never go below 1.12 */
+  --lh-display: 1.2;
+  --lh-h1: 1.24;
+  --lh-h2: 1.3;
+  --lh-h3: 1.33;
+  --lh-h4: 1.4;
+  --lh-body: 1.625;
+  --measure: 70ch;
+
+  /* ---- Layout ---- */
+  --container: 1200px;
+  --gutter: 24px;         /* 16px below 640px */
+  --space-1: 4px;  --space-2: 8px;  --space-3: 12px; --space-4: 16px;
+  --space-5: 24px; --space-6: 32px; --space-7: 48px; --space-8: 64px; --space-9: 96px;
+  --section-pad: 96px;    /* 64px below 640px */
+  --radius: 4px;
+  --shadow-menu: 0 8px 24px rgba(16, 38, 61, 0.16); /* open menus and the RFQ drawer only */
+  --bp-sm: 640px; --bp-md: 768px; --bp-lg: 1024px; --bp-xl: 1280px;
+  --tap: 44px;
+}
+
+/* ---- Minimal base: links, focus, the signature "dimension line" ---- */
+body { color: var(--color-text); background: var(--color-bg); font-family: var(--font-body); line-height: var(--lh-body); }
+h1, h2 { font-family: var(--font-display); font-weight: var(--fw-display); font-stretch: var(--stretch-display); }
+h3, h4 { font-family: var(--font-display); font-weight: var(--fw-heading); }
+a { color: var(--color-link); text-decoration: underline; text-decoration-color: var(--color-link-underline); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+a:hover { color: var(--hears-red); }
+:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 2px; }
+.on-dark :focus-visible { outline-color: var(--color-focus-on-dark); }
+.on-dark a { color: var(--white); }
+.dimension-rule { position: relative; height: 1px; background: var(--navy-800); margin-block: var(--space-4); }
+.dimension-rule::before, .dimension-rule::after { content: ""; position: absolute; top: -6px; width: 2px; height: 13px; background: var(--hears-red); }
+.dimension-rule::before { left: 0; } .dimension-rule::after { right: 0; }
+.on-dark .dimension-rule { background: var(--white); }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; scroll-behavior: auto !important; } }
+
+/* ---- Components: navigation, buttons, cards, forms (all derived from the palette above) ---- */
+:root {
+  /* navigation */
+  --nav-bg:            var(--white);
+  --nav-text:          var(--navy-800);
+  --nav-text-hover:    var(--hears-red);
+  --nav-border:        var(--line);
+  --nav-bg-dark:       var(--navy-800);
+  --nav-text-on-dark:  var(--white);
+  /* buttons */
+  --btn-primary-bg:          var(--hears-red);
+  --btn-primary-bg-hover:    var(--hears-red-700);
+  --btn-primary-text:        var(--white);
+  --btn-secondary-border:    var(--navy-800);
+  --btn-secondary-text:      var(--navy-800);
+  --btn-secondary-bg-hover:  var(--grey-50);
+  --btn-on-dark-bg:          var(--white);
+  --btn-on-dark-text:        var(--navy-800);
+  --btn-disabled-bg:         var(--grey-50);
+  --btn-disabled-text:       var(--slate-600);
+  /* cards */
+  --card-bg:       var(--white);
+  --card-border:   var(--line);
+  --card-radius:   var(--radius);
+  --card-pad:      var(--space-5);
+  --card-tag-bg:   var(--green-100);
+  --card-tag-text: var(--green-700);
+  /* forms and states */
+  --field-border:        var(--control);
+  --field-border-focus:  var(--navy-800);
+  --field-error:         var(--error);
+  --state-success:       var(--navy-800);   /* green is reserved for Solar Leader project identification (brief section 4) */
+  /* elevation: one soft shadow only (open menus, RFQ drawer); everything else uses borders */
+  --shadow-none: none;
+  /* interactive */
+  --focus-ring: 3px solid var(--color-focus);
+  --focus-ring-on-dark: 3px solid var(--color-focus-on-dark);
+}
