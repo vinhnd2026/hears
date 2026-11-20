@@ -51,7 +51,7 @@
 
 /* ---------- Hero ---------- */
 .hero { position: relative; overflow: hidden; }
-.hero--dark { background-color: var(--navy-800); background-image: url("/assets/img/patterns/grid.svg"); color: var(--white); }
+.hero--dark { background-color: var(--navy-800); background-image: url("../img/patterns/grid.svg"); color: var(--white); }
 .hero--light { background: var(--grey-50); border-bottom: 1px solid var(--line); color: var(--navy-800); }
 .hero__grid { position: relative; z-index: 2; display: grid; gap: var(--space-7); align-items: center; padding-block: clamp(48px, 7vw, 96px); }
 .hero--art .hero__grid { grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); }

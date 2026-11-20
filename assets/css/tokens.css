@@ -77,6 +77,12 @@
   --tap: 44px;
 }
 
+
+/* v9.3: CJK system stacks — Be Vietnam Pro has no CJK glyphs, so Chinese/Japanese
+   text falls through to the reader's system CJK font (keeps Latin/digits in BVP). */
+:lang(zh-CN) { --font-display: "Be Vietnam Pro", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif; --font-body: "Be Vietnam Pro", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif; }
+:lang(ja) { --font-display: "Be Vietnam Pro", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", "Noto Sans CJK JP", sans-serif; --font-body: "Be Vietnam Pro", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", "Noto Sans CJK JP", sans-serif; }
+
 /* ---- Minimal base: links, focus, the signature "dimension line" ---- */
 body { color: var(--color-text); background: var(--color-bg); font-family: var(--font-body); line-height: var(--lh-body); }
 h1, h2 { font-family: var(--font-display); font-weight: var(--fw-display); font-stretch: var(--stretch-display); }
